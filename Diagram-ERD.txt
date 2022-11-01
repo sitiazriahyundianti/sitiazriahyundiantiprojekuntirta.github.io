@@ -1,0 +1,96 @@
+Table mahasiswa {
+  id int [pk]
+  nim int
+  nama varchar
+  tanggal_lahir date
+  photo blob
+  email varchar
+  fakultas varchar
+  prodi varchar
+ }
+ 
+Table fakultas {
+   id_fakultas int [pk]
+   nama_fakultas varchar
+ }
+ 
+Table prodi {
+   id_prodi int [pk]
+   nama_prodi varchar
+ }
+ 
+Table tendik {
+  id int [pk]
+  nip int
+  nama varchar
+  tanggal_lahir date
+  photo blob
+  email varchar
+  unit varchar
+  alamat_rumah text
+ }
+ 
+Table unit {
+  id_unit int [pk]
+  nama_unit varchar
+}
+
+Table provinsi {
+  id_provinsi int [pk]
+  nama_provinsi varchar
+}
+
+Table kota {
+  id_kota int [pk]
+  nama_kota varchar
+}
+
+Table dosen {
+  id int [pk]
+  nip int
+  nama varchar
+  tanggal_lahir date
+  photo blob
+  email varchar
+  faculty varchar
+  jurusan varchar
+  alamat_rumah text
+ }
+
+Table faculty {
+  id_faculty int [pk]
+  faculty_name varchar
+}
+
+Table jurusan {
+  id_jurusan int [pk]
+  nama_jurusan varchar
+}
+
+Table province {
+  id_province int [pk]
+  province_name varchar
+}
+
+Table city {
+  id_city int [pk]
+  city_name varchar
+}
+
+Ref: "fakultas"."id_fakultas" < "mahasiswa"."fakultas"
+
+Ref: "prodi"."id_prodi" < "mahasiswa"."prodi"
+
+Ref: "unit"."id_unit" < "tendik"."unit"
+
+Ref: "provinsi"."id_provinsi" < "tendik"."alamat_rumah"
+
+Ref: "kota"."id_kota" < "tendik"."alamat_rumah"
+
+Ref: "faculty"."id_faculty" < "dosen"."faculty"
+
+Ref: "jurusan"."id_jurusan" < "dosen"."jurusan"
+
+Ref: "province"."id_province" < "dosen"."alamat_rumah"
+
+Ref: "city"."id_city" < "dosen"."alamat_rumah"
