@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center><h1>FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</h1></center>
+
+    <center><img src="https://untirta.ac.id/wp-content/uploads/2020/01/Untirta-Logo-Transparan.png", width="25%"></center>
+
+    <h2>Terdiri dari prodi-prodi:</h2>
+    <p>Pendidikan Matematika, Pendidikan Biologi, Pendidikan Seni Pertunjukkan, Pendidikan Guru PAUD, Pendidikan Guru Sekolah Dasar, Pendidikan Bahasa Inggris, Pendidikan Kimia, Pendidikan Fisika, Pendidikan Pancasila dan Kewarganegaraan, Pendidikan Sejarah, Pendidikan Non-Formal, Bimbingan dan Konseling, Pendidikan Vokasional Teknik Mesin, Pendidikan Vokasional Teknik Elektro, Pendidikan IPA, Pendidikan Khusus, dan Pendidikan Sosiologi.</p>
+    
+    {{title | upper }} <br>
+    {% for s1 in s1 %}
+        <li>{{s1}}</li>
+    {% endfor %}
+
+{% endblock %}
