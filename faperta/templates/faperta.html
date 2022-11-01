@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <center><h1>FAKULTAS PERTANIAN</h1></center>
+
+    <center><img src="https://untirta.ac.id/wp-content/uploads/2020/01/Untirta-Logo-Transparan.png", width="25%"></center>
+
+    <h2>Terdiri dari prodi-prodi:</h2>
+    <p>Agribisnis, Agroekoteknologi, Ilmu Perikanan, dan Teknologi Pangan </p>
+
+    {{title | upper }} <br>
+    {% for s1 in s1 %}
+        <li>{{s1}}</li>
+    {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>
+                    Data Mahasiswa
+                    <a href="{% url 'tambah_mahasiswa' %}">Tambah</a>
+                </h3>
+
+                {% for message in messages %}
+                {% if messages %}
+                     <div class="alert alert-success">{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+
+                <table class="table table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Photo</th>
+                            <th>Email</th>
+                            <th>Fakultas</th>
+                            <th>Prodi</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mahasiswa in mahasiswa %}
+                        <tr>
+                            <td><a href="{% url 'ubah_mahasiswa' mahasiswa.id %}">{{ mahasiswa.NIM }}</a></td>
+                            <td>{{ mahasiswa.nama }}</td>
+                            <td>{{ mahasiswa.tanggal_lahir }}</td>
+                            <td>{{ mahasiswa.photo }}</td>
+                            <td>{{ mahasiswa.email }}</td>
+                            <td>{{ mahasiswa.fakultas }}</td>
+                            <td>{{ mahasiswa.prodi }}</td>
+                            <td>
+                                <button data-bs-toggle="modal" data-bs-target="#hapus-{{ mahasiswa.id }}" class="btn btn-danger">Hapus</button>
+                            </td>
+                  
+                              <div class="modal" id="hapus-{{ mahasiswa.id }}">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <div class="modal-title">
+                                        <h3>Hapus</h3>
+                                      </div>
+                                    </div>
+                                    <div class="modal-body"> Apakah anda yakin ingin menghapus <strong>{{ mahasiswa.NIM | upper }}</strong>?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <a href="{% url 'hapus_mahasiswa' mahasiswa.id %}" class="btn btn-danger">Hapus</a>
+                                      <button class="btn btn-dark" data-bs-dismiss="modal">Tidak</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+              
+{% endblock %}
