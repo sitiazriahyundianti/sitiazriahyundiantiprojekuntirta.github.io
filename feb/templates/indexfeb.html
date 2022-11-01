@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center><h1>FAKULTAS EKONOMI DAN BISNIS</h1></center>
+
+    <center><img src="https://untirta.ac.id/wp-content/uploads/2020/01/Untirta-Logo-Transparan.png", width="25%"></center>
+
+
+    <h2>Terdiri dari prodi-prodi:</h2>
+    <p>S-1 Manajemen, S-1 Akuntansi, S-1 Ilmu Ekonomi Pembangunan, S-1 Ekonomi Syariah, D-3 Auntansi, D-3 Perpajakan, D-3 Marketing, dan D-3 Keuangan Perbankan </p>
+    
+
+    {{title | upper }} <br>
+    {% for s1 in s1 %}
+        <li>{{s1}}</li>
+    {% endfor %}
+
+{% endblock %}

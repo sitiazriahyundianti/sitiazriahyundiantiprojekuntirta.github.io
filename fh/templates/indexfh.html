@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <center><h1>FAKULTAS HUKUM</h1></center>
+
+    <center><img src="https://untirta.ac.id/wp-content/uploads/2020/01/Untirta-Logo-Transparan.png", width="25%"></center>
+
+    <h2>Terdiri dari prodi-prodi:</h2>
+    <p>Ilmu Hukum </p>
+
+    {{title | upper }} <br>
+    {% for s1 in s1 %}
+        <li>{{s1}}</li>
+    {% endfor %}
+    
+{% endblock %}
